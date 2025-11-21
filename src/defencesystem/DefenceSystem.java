@@ -52,6 +52,8 @@ public class DefenceSystem {
     public static void main(String[] args) {
         DefenceObserverable defenceObserverable = new DefenceObserverable();
         defenceObserverable.addDefenceObserver(new Helicopter());
+        defenceObserverable.addDefenceObserver(new Submarine());
+        defenceObserverable.addDefenceObserver(new Tank());
         new MainController(defenceObserverable).setVisible(true);
     }
     
