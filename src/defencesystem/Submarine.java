@@ -35,8 +35,8 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
         JbtnClick = new javax.swing.JCheckBox();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtArea2 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        txtSend = new javax.swing.JTextField();
+        btnSend = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,12 +116,17 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
         jScrollPane2.setViewportView(txtArea2);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 190));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 200, -1));
+        getContentPane().add(txtSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 200, -1));
 
-        jButton5.setBackground(new java.awt.Color(255, 0, 0));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton5.setText("Send");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
+        btnSend.setBackground(new java.awt.Color(255, 0, 0));
+        btnSend.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSend.setText("Send");
+        btnSend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSendActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defencesystem/sub.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -130,14 +135,19 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
+        String msg = "SUBMARINE - "+txtSend.getText();
+        MainController.setDefeneMsg(msg);
+    }//GEN-LAST:event_btnSendActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox JbtnClick;
+    private javax.swing.JButton btnSend;
     private javax.swing.JButton btnShoot;
     private javax.swing.JButton btnSonar;
     private javax.swing.JButton btnTowah;
     private javax.swing.JButton btnTrident;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -150,10 +160,10 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
     private javax.swing.JSlider jSlider3;
     private javax.swing.JSlider jSlider4;
     private javax.swing.JSlider jSlider5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAreClear;
     private javax.swing.JLabel lblAreaClear;
     private javax.swing.JTextArea txtArea2;
+    private javax.swing.JTextField txtSend;
     // End of variables declaration//GEN-END:variables
 
     

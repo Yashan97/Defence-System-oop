@@ -101,6 +101,11 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         getContentPane().add(txtSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 210, -1));
 
         btnSend.setText("Send");
+        btnSend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSendActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(102, 204, 255));
@@ -134,6 +139,11 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
+        String msg = "HELICOPTER - "+txtSend.getText();
+        MainController.setDefeneMsg(msg);
+    }//GEN-LAST:event_btnSendActionPerformed
 
     
 

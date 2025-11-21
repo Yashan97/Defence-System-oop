@@ -129,7 +129,19 @@ public class MainController extends javax.swing.JFrame {
     private void btnMainControllerSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainControllerSendActionPerformed
         defenceObservableInterFace.getMsgMain(txtSendMsg.getText());
     }//GEN-LAST:event_btnMainControllerSendActionPerformed
-
+    public void updateInbox(){
+        jTextArea1.setText("");
+    }
+    public static void setDefeneMsg(String msg){
+        try{
+           javax.swing.text.Document doc = jTextArea1.getDocument();
+           doc.insertString(doc.getLength(),msg+"\n",null);
+           jTextArea1.setCaretPosition(doc.getLength());
+        }catch(javax.swing.text.BadLocationException e){
+        
+        }
+    }
+    
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -139,7 +151,7 @@ public class MainController extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtSendMsg;
     // End of variables declaration//GEN-END:variables
 }
