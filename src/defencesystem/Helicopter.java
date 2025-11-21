@@ -161,7 +161,13 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
 
     @Override
     public void getMsgMain(String msg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try{
+           javax.swing.text.Document doc = txtArea.getDocument();
+           doc.insertString(doc.getLength(),"Main Controller - " +msg+"\n",null);
+           txtArea.setCaretPosition(doc.getLength());
+        }catch(javax.swing.text.BadLocationException e){
+        
+        }
     }
 
     @Override

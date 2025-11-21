@@ -23,7 +23,9 @@ import java.util.ArrayList;
 
         @Override
         public void getMsgMain(String msg) {
-
+            for (DefenceObserver defenceObserver : observerList) {
+                defenceObserver.getMsgMain(msg);
+            }
         }
 
         @Override

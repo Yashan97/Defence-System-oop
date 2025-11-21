@@ -34,7 +34,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
         jSlider5 = new javax.swing.JSlider();
         JbtnClick = new javax.swing.JCheckBox();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtArea2 = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -109,11 +109,11 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 250, 410));
 
-        jTextArea2.setBackground(new java.awt.Color(84, 84, 203));
-        jTextArea2.setColumns(20);
-        jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtArea2.setBackground(new java.awt.Color(84, 84, 203));
+        txtArea2.setColumns(20);
+        txtArea2.setForeground(new java.awt.Color(255, 255, 255));
+        txtArea2.setRows(5);
+        jScrollPane2.setViewportView(txtArea2);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 190));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 200, -1));
@@ -150,17 +150,23 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
     private javax.swing.JSlider jSlider3;
     private javax.swing.JSlider jSlider4;
     private javax.swing.JSlider jSlider5;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAreClear;
     private javax.swing.JLabel lblAreaClear;
+    private javax.swing.JTextArea txtArea2;
     // End of variables declaration//GEN-END:variables
 
     
 
     @Override
     public void getMsgMain(String msg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         try{
+           javax.swing.text.Document doc = txtArea2.getDocument();
+           doc.insertString(doc.getLength(),"Main Controller - " +msg+"\n",null);
+           txtArea2.setCaretPosition(doc.getLength());
+        }catch(javax.swing.text.BadLocationException e){
+        
+        }
     }
 
     @Override
