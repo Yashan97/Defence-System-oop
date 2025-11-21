@@ -43,7 +43,7 @@ import java.util.ArrayList;
         }
         public void notifyDefence(){
             for (DefenceObserver ob : observerList) {
-                ob.updatebutton(position);
+                ob.update(position);
                 updatebutton();
             }
         }

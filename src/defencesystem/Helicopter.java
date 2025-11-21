@@ -23,7 +23,6 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         lblAreaClear = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnCheckPosition = new javax.swing.JCheckBox();
         lblAreClear = new javax.swing.JLabel();
         btnLesor = new javax.swing.JButton();
         btnShoot = new javax.swing.JButton();
@@ -33,6 +32,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         txtSend = new javax.swing.JTextField();
         btnSend = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        CheckPosition = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,11 +62,6 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         jLabel4.setText("HELICOPTER");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 320, -1));
 
-        btnCheckPosition.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCheckPosition.setForeground(new java.awt.Color(255, 255, 255));
-        btnCheckPosition.setText("Position");
-        jPanel1.add(btnCheckPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 90, -1));
-
         lblAreClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblAreClear.setForeground(new java.awt.Color(255, 255, 255));
         lblAreClear.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -87,12 +82,15 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnLesor.setText("Leser Operation");
+        btnLesor.setEnabled(false);
         getContentPane().add(btnLesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 150, -1));
 
         btnShoot.setText("Shoot");
+        btnShoot.setEnabled(false);
         getContentPane().add(btnShoot, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 150, -1));
 
         btnMissile.setText("Missile Operation");
+        btnMissile.setEnabled(false);
         getContentPane().add(btnMissile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 150, -1));
 
         txtArea.setColumns(20);
@@ -107,15 +105,25 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
 
         jPanel3.setBackground(new java.awt.Color(102, 204, 255));
 
+        CheckPosition.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CheckPosition.setForeground(new java.awt.Color(255, 255, 255));
+        CheckPosition.setText("Position");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(CheckPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CheckPosition)
+                .addContainerGap(350, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 160, 380));
@@ -130,7 +138,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox btnCheckPosition;
+    private javax.swing.JCheckBox CheckPosition;
     private javax.swing.JButton btnLesor;
     private javax.swing.JButton btnMissile;
     private javax.swing.JButton btnSend;
@@ -149,10 +157,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
     private javax.swing.JTextField txtSend;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void updatebutton() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
     @Override
     public void getMsgMain(String msg) {
@@ -175,11 +180,30 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
 
     @Override
     public void update(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       this.position = position;
+        updatebutton(position);
     }
 
     @Override
     public void updatebutton(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.position=position;
+        if (CheckPosition.isSelected()) {
+            if (position>=75){
+                btnLesor.setEnabled(true);
+            }else if(position>=60){
+                btnMissile.setEnabled(true);
+            }else if (position>=50){
+                btnShoot.setEnabled(true);
+            }
+            if (position<=50) {
+                btnShoot.setEnabled(false);
+            }else if(position<=60){
+                btnMissile.setEnabled(false);
+            }else if (position<=75){
+                btnLesor.setEnabled(false);
+            }
+        }
     }
+
+   
 }

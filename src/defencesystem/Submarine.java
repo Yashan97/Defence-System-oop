@@ -22,17 +22,17 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblAreClear = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnTowah = new javax.swing.JButton();
+        btnShoot = new javax.swing.JButton();
+        btnSonar = new javax.swing.JButton();
+        btnTrident = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jSlider1 = new javax.swing.JSlider();
         jSlider2 = new javax.swing.JSlider();
         jSlider3 = new javax.swing.JSlider();
         jSlider4 = new javax.swing.JSlider();
         jSlider5 = new javax.swing.JSlider();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        JbtnClick = new javax.swing.JCheckBox();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
@@ -63,7 +63,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("SUNMARINE");
+        jLabel4.setText("SUBMARINE");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 320, -1));
 
         lblAreClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -74,25 +74,25 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 70));
 
-        jButton1.setBackground(new java.awt.Color(156, 100, 100));
-        jButton1.setText("Towah -Missile");
-        jButton1.setEnabled(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 160, -1));
+        btnTowah.setBackground(new java.awt.Color(156, 100, 100));
+        btnTowah.setText("Towah -Missile");
+        btnTowah.setEnabled(false);
+        getContentPane().add(btnTowah, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 160, -1));
 
-        jButton2.setBackground(new java.awt.Color(156, 100, 100));
-        jButton2.setText("Shoot");
-        jButton2.setEnabled(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 160, -1));
+        btnShoot.setBackground(new java.awt.Color(156, 100, 100));
+        btnShoot.setText("Shoot");
+        btnShoot.setEnabled(false);
+        getContentPane().add(btnShoot, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 160, -1));
 
-        jButton3.setBackground(new java.awt.Color(156, 100, 100));
-        jButton3.setText("Sonar Operation");
-        jButton3.setEnabled(false);
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, -1));
+        btnSonar.setBackground(new java.awt.Color(156, 100, 100));
+        btnSonar.setText("Sonar Operation");
+        btnSonar.setEnabled(false);
+        getContentPane().add(btnSonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, -1));
 
-        jButton4.setBackground(new java.awt.Color(156, 100, 100));
-        jButton4.setText("Trident - Missile");
-        jButton4.setEnabled(false);
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, -1));
+        btnTrident.setBackground(new java.awt.Color(156, 100, 100));
+        btnTrident.setText("Trident - Missile");
+        btnTrident.setEnabled(false);
+        getContentPane().add(btnTrident, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, -1));
 
         jPanel2.setBackground(new java.awt.Color(20, 20, 86));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,10 +102,10 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
         jPanel2.add(jSlider4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
         jPanel2.add(jSlider5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Position");
-        jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 90, -1));
+        JbtnClick.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        JbtnClick.setForeground(new java.awt.Color(255, 255, 255));
+        JbtnClick.setText("Position");
+        jPanel2.add(JbtnClick, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 90, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 250, 410));
 
@@ -132,12 +132,12 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JCheckBox JbtnClick;
+    private javax.swing.JButton btnShoot;
+    private javax.swing.JButton btnSonar;
+    private javax.swing.JButton btnTowah;
+    private javax.swing.JButton btnTrident;
     private javax.swing.JButton jButton5;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -156,10 +156,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
     private javax.swing.JLabel lblAreaClear;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void updatebutton() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
     @Override
     public void getMsgMain(String msg) {
@@ -182,12 +179,35 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
     @Override
     public void update(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.position = position;
+        updatebutton(position);
     }
 
     @Override
     public void updatebutton(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.position = position;
+        if (JbtnClick.isSelected()) {
+            if (position>=75) {
+                btnTrident.setEnabled(true);
+            }else if(position>=65){
+                btnTowah.setEnabled(true);
+            }
+            else if (position>=55){
+                btnSonar.setEnabled(true);
+            }
+            else if(position>=45){
+                btnShoot.setEnabled(true);
+            }
+            if (position<=45) {
+                btnShoot.setEnabled(false);
+            }else if(position<=55){
+                btnSonar.setEnabled(false);
+            }else if(position<=65){
+                btnTowah.setEnabled(false);
+            }else if (position<=75){
+                btnTrident.setEnabled(false);
+            }
+        }
     }
 
     

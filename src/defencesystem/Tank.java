@@ -1,6 +1,8 @@
 
 package defencesystem;
 
+import java.awt.Checkbox;
+
 public class Tank extends javax.swing.JFrame implements DefenceObserver{
 
     private int position;
@@ -21,7 +23,7 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
         lblAreaClear = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        JCB = new javax.swing.JCheckBox();
         lblAreClear = new javax.swing.JLabel();
         btnShoot = new javax.swing.JButton();
         btnMissile = new javax.swing.JButton();
@@ -64,10 +66,10 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
         jLabel4.setText("TANK");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 260, -1));
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Position");
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 90, -1));
+        JCB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        JCB.setForeground(new java.awt.Color(255, 255, 255));
+        JCB.setText("Position");
+        jPanel1.add(JCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 90, -1));
 
         lblAreClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblAreClear.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,7 +79,7 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 70));
 
-        btnShoot.setBackground(new java.awt.Color(255, 51, 51));
+        btnShoot.setBackground(new java.awt.Color(255, 255, 255));
         btnShoot.setText("Shoot");
         btnShoot.setEnabled(false);
         btnShoot.addActionListener(new java.awt.event.ActionListener() {
@@ -186,12 +188,12 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox JCB;
     private javax.swing.JButton btnMissile;
     private javax.swing.JButton btnRedar;
     private javax.swing.JButton btnRotation;
     private javax.swing.JButton btnSend;
     private javax.swing.JButton btnShoot;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -207,10 +209,7 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
     private javax.swing.JLabel lblAreaClear;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void updatebutton() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
     @Override
     public void getMsgMain(String msg) {
@@ -233,11 +232,33 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
 
     @Override
     public void update(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.position = position;
+        updatebutton(position);
     }
 
     @Override
     public void updatebutton(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.position = position;
+        if (JCB.isSelected()) {
+            if (position>=75) {
+                btnRotation.setEnabled(true);
+            }else if (position>=65){
+                btnRedar.setEnabled(true);
+            }else if(position>=55){
+                btnMissile.setEnabled(true);
+            }else if(position>=45){
+                btnShoot.setEnabled(true);
+            }
+            if (position<=45) {
+                btnShoot.setEnabled(false);
+            }else if (position<=55){
+                btnMissile.setEnabled(false);
+            }else if(position<=65){
+                btnRedar.setEnabled(false);
+            }else if(position<=75){
+                btnRotation.setEnabled(false);
+            }
+            
+        }
     }
 }
