@@ -28,17 +28,31 @@ import java.util.ArrayList;
 
         @Override
         public void areaClear(boolean clear) {
-            
+            for (DefenceObserver ob: observerList) {
+                ob.areaClear(clear);
+            }
         }
 
         @Override
         public void setPosition(int position) {
+            if (this.position != position) {
+                this.position = position;
+                notifyDefence();
+            }
             
+        }
+        public void notifyDefence(){
+            for (DefenceObserver ob : observerList) {
+                ob.updatebutton(position);
+                updatebutton();
+            }
         }
  }
 public class DefenceSystem {
     public static void main(String[] args) {
-        
+        DefenceObserverable defenceObserverable = new DefenceObserverable();
+        defenceObserverable.addDefenceObserver(new Helicopter());
+        new MainController(defenceObserverable).setVisible(true);
     }
     
 }
